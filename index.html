@@ -4,165 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <style>*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    font-family: arial;
-}
-.add-nombres{
-    margin-top: 40px;
-}
-#nombre, #add{
-    padding: 4px 8px;
-}
-.nombre{
-    display: grid;
-    grid-template-columns: minmax(100px,300px ) 1fr;
-    border-top: 1px solid #48e;
-}
-.option button{
-    background: transparent;
-    border: none;
-}
-.imposible{
-    color: rgb(137, 137, 137);
-}
-.delete:hover{
-    color: rgb(137, 137, 137);
-}
-.posible{
-    color: #48e;
-}</style>
-
+    <link rel="stylesheet" href="block.css">
+    <title>Jueguecito</title>
 </head>
 <body>
-    <div class="add-nombres">
-        <input type="text" id="nombre" placeholder="introduce tu nombre">
-        <button id="add">anadir</button>
-    </div>
-    <div class="nombres">
-        <div class="nombre">
-            <h2>ricardo</h2>
-            <div class="option">
-                <button class="imposible">guardar</button>
-                <button class="posible">borrar</button>
-            </div>
+    <!-- <div class="container">
+        <div class="contenedor"> 
         </div>
+        <div class="move">
+            <div class="move__left">←</div>
+            <div class="move__right">→</div>
+        </div>
+    </div>
+-->
+<div class="container">
+    <div class="cont">
         
+        
+    </div>
+    
+</div>
 
-    <script src="comments.js">"use strict"
 
-const IDBRequest = indexedDB.open("rdatabase",1);
 
-IDBRequest.addEventListener("upgradeneeded",()=>{
-    console.log("objeto creado correctamente")
-    const db = IDBRequest.result;
-    db.createObjectStore("nombres",{
-        autoIncrement:true
-    })
-})
-IDBRequest.addEventListener("success",()=>{
-    console.log("ta bien")
-})
-IDBRequest.addEventListener("error",()=>{
-    console.log("error")
-})
-
-document.querySelector("#add").addEventListener("click",()=>{
-    let nombre = document.querySelector("#nombre").value;
-    if(nombre.length > 0){
-        if(document.querySelector(".posible")!= undefined){
-            if(confirm("hay elementos sin guardar quieres continuar?")){
-                addObjeto({nombre})
-                leerObjetos();
-            }
-        }
-    }
-})
-
-const addObjeto = objeto =>{
-    const IDBData = getIDBData("readwrite");
-    IDBData.add(objeto);
-    
-}
-const leerObjetos = () => {
-    const IDBData = getIDBData("readonly");
-    const cursor = IDBData.opencursor();
-    const fragment = document.createDocumentFragment();
-    document.querySelector(nombres).innerHTML = "";
-    cursor.addEventListener("success",()=>{
-        if(cursor.result){
-            let elemento = nombresHTML(cursor.result.key,cursor.result.value);
-            fragment.appendChild(elemento);
-            cursor.result.continue();
-        }else document.querySelector(".nombres")
-    })
-}
-const modificarObjeto = (key,objeto) =>{
-    const IDBData = getIDBData("readwrite","objeto modded correctamente");
-    IDBData.put(objeto,key);
-}
-const eliminarObjeto = key =>{
-    const IDBData = getIDBData("readwrite","objeto deleteado correctamente");
-    IDBData.delete(key); 
-}
-const transactionOperation = (mode,msg) =>{
-    const db = IDBRequest.result;
-    const IDBtransaction = db.transaction("nombres",mode);
-    const objectStore = IDBtransaction.objectStore("nombres");
-    IDBData = addEventListener("complete",()=>{
-        console.log(msg)
-    }) 
-    return objectStore;
-}
-
-const nombres =(id,name) =>{
-    const container = document.createElement("DIV");
-    const h2 = document.createElement("H2");
-    const options = document.createElement("DIV");
-    const saveButton = document.createElement("button");
-    const deleteButton = document.createElement("button");
-    
-    container.classList.add("nombre");
-    options.classList.add("options");
-    saveButton.classList.add("imposible");
-    deleteButton.classList.add("delete");
-    
-    saveButton.textContent = "guardar"
-    deleteButton.textContent = "borrar"
-    h2.textContent = name.nombre;
-    h2.setAttribute("contenteditable","true");
-    h2.setAttribute("spellcheck","false");
-    
-    
-    options.appendChild(saveButton);
-    options.appendChild(deleteButton);
-    
-    container.appendChild(h2);
-    container.appendChild(options);
-    
-    h2.addEventListener("keyup",()=>{
-        saveButton.classList.replace("imposible","posible")
-    })
-    
-    
-    saveButton.addEventListener("click",()=>{
-        if(saveButton.className == "posible"){
-            modificarObjeto(id,{nombre:h2.textContent});
-            saveButton.classList.replace("posible")
-        }
-    })
-    
-    deleteButton.addEventListener("click",()=>{
-        eliminarObjeto(id);
-        document.querySelector(".nombres").removeChild("container")
-    })
-    
-    return container
-}
-</script>
+<script src="game.js"></script>
 </body>
 </html>
