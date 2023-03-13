@@ -1,0 +1,151 @@
+/* .container{
+    width: 900px;
+    height: 60vh;
+    margin:2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    color: rgb(72, 0, 255);
+    font-weight: bold;
+    font-size: 30px;
+}
+.contenedor{
+    width:570px;
+    height:300px;
+    position: relative;
+    border:1px solid tomato;
+    margin:3rem auto;
+}
+.message{
+    background-color: crimson;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+.bloque{
+    height:20px;
+    width:100px;
+    background-color:dodgerblue;
+    position:absolute;
+}
+.usuario{
+    width:100px;
+    height:20px;
+    position:absolute;
+    background-color:tomato;
+}
+.bola{
+    height:20px;
+    width:20px;
+    position:absolute;
+    border-radius: 100%;
+    animation: colors 5s infinite alternate;
+}
+.move{
+    border: 1px solid tomato;
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    padding: 10px;
+    left: 0;
+    right: 0;
+}
+
+.move__right{
+    background-color: rgba(255, 99, 71, 0.563);
+    width: 100px;
+    height: 30px;
+    border-radius:20px;
+    text-align:center;    
+}
+
+.move__left{
+    background-color: rgba(255, 99, 71, 0.563);
+    width: 100px;
+    height: 30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+
+@keyframes colors{
+    0%{
+        background-color:rgb(94, 235, 0);
+    }
+    20%{
+        background-color:rgb(5, 59, 167);
+    }
+    40%{
+        background-color:rgb(0, 217, 255);
+    }
+    60%{
+        background-color:rgb(229, 255, 0);
+    }
+    80%{
+        background-color:rgb(0, 255, 191);
+    }
+    100%{
+        background-color:crimson;
+    }
+} */
+
+
+
+
+.cont{
+    width: 50%;
+    height: 60vh;
+    margin:2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid;
+    position: relative;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+
+}
+.play{
+    border:solid 3px;
+    width:30%;
+    height:40vh;
+    position: relative;
+
+}
+.beat{
+    border:solid 3px;
+    width:30%;
+    height:40vh;
+    position: relative;
+
+}
+.winner{
+    border:solid 3px rgb(35, 195, 35);
+}
+.loser{
+    border:solid 3px rgb(213, 22, 22);
+}
+.equal{
+    border:solid 3px rgb(45, 41, 168);
+
+}
+.resultado{
+    background-color: crimson;
+    color: goldenrod;
+    position: absolute;
+    bottom: 0;
+    font-family: sans-serif;
+    font-size: 30px;
+}
